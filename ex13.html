@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        span{display: block; width:100px;padding:5px;}
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form name="form">
+        <div>
+            <span>아이디:</span><input type="text" name="id"><br>
+            <span>비밀번호</span><input type="password" name="pass"><br>
+            <span>비밀번호확인</span><input type="password" name="confirmpass"><br>
+            <span>성별:</span>
+            <input type="radio" name="gender" value="남" checked>남
+            <input type="radio" name="gender" value="여">여<br>
+            <span>취미:</span>
+            <input type="checkbox" name="hobby1" value="여행" checked>여행
+            <input type="checkbox" name="hobby2"value="영화감상">영화감상
+            <input type="checkbox" name="hobby3"value="컴푸터 게임">컴푸터 게임
+            <input type="checkbox" name="hobby4"value="운동"checked>운동<br>
+            <span>직업</span>
+            <select name="job">
+                <option>의사</option>
+                <option>변호사</option>
+                <option selected>프로그래머</option>
+                <option>기타</option>
+            </select><br>
+            <input type="submit" value="가입">
+            <input type="reset" value="취소">
+            <input type="button" value="목록">
+        </div>
+    </form>
+</body>
+<script>
+   $(form).on("submit" , function(e){
+       e.preventDefault();  //서밋이 되지않도록한다.
+       let id=$(form.id).val();
+       let pass=$(form.pass).val();
+       let confirmpass=$(form.confirmpass).val();
+      
+       if(id==""){
+          alert("아이디를 입력하세요!");
+          $(form.id.focus());
+      }else if(pass==""){
+          alert("비밀번호을 입력하세요!")
+          $(form.pass).focus();
+      }else if(pass!=confirmpass){
+          alert("비밀번호가 일치하지 않습니다!");
+          $(form.confirmpass).focus();
+      }else{
+          let gender=$("input[name=gender]:checked").val();
+          let hobby1=$("input[name=hobby1]:checked").val();
+          let hobby2=$("input[name=hobby2]:checked").val();
+          let hobby3=$("input[name=hobby3]:checked").val();
+          let hobby4=$("input[name=hobby4]:checked").val();
+          let job=$(form.job).val();
+
+          let str= "id:" + id + "/n";
+          str += "pass:" + pass + "/n";
+          str +="gender:" + gender + "/n";
+          str +="hobby1:" + hobby1 + "/n";
+          str +="hobby2:" + hobby2 + "/n";
+          str +="hobby3:" + hobby3 + "/n";
+          str +="hobby4:" + hobby4 + "/n";
+          str +="job:" + job +"/n";
+          alert(str);
+      }
+   }); 
+</script>
+</html>

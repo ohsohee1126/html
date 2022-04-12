@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title> 제목입니다.</title>
+        <link rel="stylesheet" href="EX01.CSS"/>
+        <script>
+            let sum=0;
+            for(i=0; i<=100; i=i+1){
+                sum = sum + i;
+            }
+            alert(sum);
+            console.log("1~100합계=" +sum);
+        </script>
+    </head>
+    <body>
+        <h1>안녕하세요!</h1>
+        <h1>저는 홍길동입니다...</h1>
+        <h2>반갑습니다</h2>
+        <h3>반갑습니다</h3>
+        <h4>반갑습니다</h4>
+        <h5>반갑습니다</h5>
+        <h6>반갑습니다</h6>
+    </body>
+</html>
